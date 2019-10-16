@@ -80,23 +80,3 @@ app.get("/api", async (req, res) => {
 		res.json({ status: "error 2"});
 	}
 });
-
-app.get("/near", async (req, res) => {
-	try {
-		const template = "SELECT name FROM campgrounds WHERE closest_town = $1";
-		const response = await pool.query(template, [req.query.city]);
-		if (response.rowCount == 0) {
-			res.json({ status: "not found", searchTerm: req.query.city });
-		} else {
-			const camps = response.rows.map(function(item) {
-				return item.name;
-			})
-			res.json({
-				status: "ok",
-				result: { city: req.query.city, campgrounds: camps }
-			});
-		}
-	} catch (err) {
-		res.json({ status: "error" });
-	}
-});
