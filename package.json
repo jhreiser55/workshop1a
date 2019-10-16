@@ -1,0 +1,24 @@
+{
+  "name": "workShop1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "workshop1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhreiser55/workshop1a.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhreiser55/workshop1a/issues"
+  },
+  "homepage": "https://github.com/jhreiser55/workshop1a#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.12.1"
+  }
+}
