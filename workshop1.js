@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.set("port", (8080));
+app.set("port", (80));
 app.use(bodyParser.json({type: "application/json"}));
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -80,26 +80,3 @@ app.get("/api", async (req, res) => {
 		res.json({ status: "error 2"});
 	}
 });
-<<<<<<< HEAD
-=======
-
-app.get("/near", async (req, res) => {
-	try {
-		const template = "SELECT name FROM campgrounds WHERE closest_town = $1";
-		const response = await pool.query(template, [req.query.city]);
-		if (response.rowCount == 0) {
-			res.json({ status: "not found", searchTerm: req.query.city });
-		} else {
-			const camps = response.rows.map(function(item) {
-				return item.name;
-			})
-			res.json({
-				status: "ok",
-				result: { city: req.query.city, campgrounds: camps }
-			});
-		}
-	} catch (err) {
-		res.json({ status: "error" });
-	}
-});
->>>>>>> 51ce0d55b5b44c3dc747bb19444819c4c3578ad7
